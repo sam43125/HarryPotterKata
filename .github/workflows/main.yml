@@ -1,0 +1,29 @@
+# Modify from https://github.com/noahgift/github-actions-pytest/blob/master/.github/workflows/pythonapp.yml
+name: Python application test with Github Actions
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+		    pip install -r requirements.txt
+
+    - name: Lint with pylint
+      run: |
+        pylint --disable=R,C harrypotterkata.py
+
+    - name: Test with pytest
+      run: |
+        python -m pytest -vv test.py
