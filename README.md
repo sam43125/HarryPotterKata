@@ -1,1 +1,1 @@
-# HarryPotterKata
+# HarryPotterKata [![Python application test with Github Actions](https://github.com/sam43125/HarryPotterKata/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/sam43125/HarryPotterKata/actions/workflows/main.yml)
