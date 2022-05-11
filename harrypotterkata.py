@@ -11,7 +11,21 @@ def get_lowest_price(combo: List[int]) -> float:
     if not combo:
         return 0.0
     counter = Counter(combo)
-    return 8.0 * len(counter.keys()) * DISCOUNT_FACTORS[len(counter.keys()) - 1]
+    occurrences = dict(counter)
+
+    price = 0.0
+    while occurrences:
+
+        num_different_books = 0
+        for k in list(occurrences.keys()):
+            occurrences[k] -= 1
+            num_different_books += 1
+            if occurrences[k] <= 0:
+                del occurrences[k]
+        
+        price += 8.0 * num_different_books * DISCOUNT_FACTORS[num_different_books - 1]
+
+    return price
 
 def main(argv):
     assert len(argv) > 2
