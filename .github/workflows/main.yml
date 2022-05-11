@@ -22,7 +22,7 @@ jobs:
 
     - name: Lint with pylint
       run: |
-        pylint --disable=R,C harrypotterkata.py
+        pylint --disable=R,C --exit-zero harrypotterkata.py
 
     - name: Test with pytest
       run: |
