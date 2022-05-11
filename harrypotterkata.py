@@ -3,9 +3,15 @@
 import sys
 import json
 from typing import List
+from collections import Counter
+
+DISCOUNT_FACTORS = [1.0, 0.95, 0.9, 0.8, 0.75]
 
 def get_lowest_price(combo: List[int]) -> float:
-    return len(combo) * 8
+    if not combo:
+        return 0.0
+    counter = Counter(combo)
+    return 8.0 * len(counter.keys()) * DISCOUNT_FACTORS[len(counter.keys()) - 1]
 
 def main(argv):
     assert len(argv) > 2
