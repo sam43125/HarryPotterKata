@@ -5,7 +5,7 @@ import json
 from typing import List
 
 def get_lowest_price(combo: List[int]) -> float:
-    return 0
+    return len(combo) * 8
 
 def main(argv):
     assert len(argv) > 2
