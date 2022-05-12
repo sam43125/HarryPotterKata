@@ -29,7 +29,7 @@ def get_lowest_price(combo: List[int]) -> float:
                         else:
                             break
                 else:
-                    price += __get_lowest_price(*args)
+                    price += __get_lowest_price(*sorted(args))
                     if price < min_price:
                         min_price = price
         
@@ -37,13 +37,9 @@ def get_lowest_price(combo: List[int]) -> float:
 
     counter = Counter(combo)
     occurrences = dict(counter)
-    b0 = occurrences.get(0, 0)
-    b1 = occurrences.get(1, 0)
-    b2 = occurrences.get(2, 0)
-    b3 = occurrences.get(3, 0)
-    b4 = occurrences.get(4, 0)
+    args = [occurrences.get(book, 0) for book in range(5)]
 
-    return __get_lowest_price(b0, b1, b2, b3, b4)
+    return __get_lowest_price(*args)
 
 def main(argv):
     assert len(argv) >= 2
